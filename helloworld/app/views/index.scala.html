@@ -1,0 +1,42 @@
+@(helloForm: Form[Application.Hello])
+
+@import helper._
+
+@main(title = "The 'Problem solver' application") {
+    
+    <h1>Configure your 'Problem solver':</h1>
+    
+    @form(action = routes.Application.sayHello, args = 'id -> "helloform") {
+        
+        @inputText(
+            field = helloForm("a"),
+            args = '_label -> "Enter the first param", 'placeholder -> "0"
+        )
+         @inputText(
+            field = helloForm("b"),
+            args = '_label ->"Enter The Second param", 'placeholder -> "0"
+        ) @inputText(
+            field = helloForm("c"),
+            args = '_label -> "Enter The Third param", 'placeholder -> "0"
+        )
+        
+       
+        
+        @select(
+            field = helloForm("color"), 
+            options = options(
+                "" -> "Default",
+                "red" -> "Red",
+                "green" -> "Green",
+                "blue" -> "Blue"
+            ),
+            args = '_label -> "Choose a color"
+        )
+        
+        <p class="buttons">
+            <input type="submit">
+        <p>
+        
+    }
+    
+}
